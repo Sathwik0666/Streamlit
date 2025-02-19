@@ -6,11 +6,15 @@ from PIL import Image
 
 # Load the trained model
 @st.cache_resource
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.models import Model
+
+@st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("model.h5")
-
-model = load_model()
-
+    base_model = VGG16(input_shape=(224, 224, 3), weights=None, include_top=True)
+    model = Model(inputs=base_model.input, outputs=base_model.output)
+    model.load_weights("model.h5")
+    return model
 # Streamlit UI
 st.title("Waste Classification App")
 st.write("Upload an image to classify it into different waste categories.")
