@@ -29,7 +29,7 @@ if uploaded_file is not None:
     img_array /= 255.0  # Normalize
     
     # Make prediction
-    predictions = model.predict(img_array)
+    predictions = waste.predict(img_array)
     class_names = ["batteries", "clothes", "e-waste", "glass", "light blubs", "metal", "organic", "paper", "plastic"]  
     predicted_class = class_names[np.argmax(predictions)]
     
