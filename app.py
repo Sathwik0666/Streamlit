@@ -6,11 +6,6 @@ from PIL import Image
 from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.models import Model
 
-# Load the trained model
-@st.cache_resource
-from tensorflow.keras.applications.vgg16 import VGG16
-from tensorflow.keras.models import Model
-
 @st.cache_resource
 def load_model():
     base_model = VGG16(input_shape=(224, 224, 3), weights=None, include_top=True)
