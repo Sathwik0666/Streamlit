@@ -3,6 +3,8 @@ import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import image
 from PIL import Image
+from tensorflow.keras.applications.vgg16 import VGG16
+from tensorflow.keras.models import Model
 
 # Load the trained model
 @st.cache_resource
